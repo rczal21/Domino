@@ -1,6 +1,6 @@
 // Dom_DHIR_Model
 // 12/08/2026
-/* Daniel Luís de Amorim Mariano Santos, 
+/* Daniel LuÃ­s de Amorim Mariano Santos, 
 Henrique Campos Rodrigues, 
 Isabella de Souza Fleury, 
 Rafaella Castro Zandona Alves de Lima */
@@ -37,4 +37,14 @@ void organizar(Peca pecas[]){
 			}
 		}
 	}
-
+void distribuir(Peca pecas[]){
+	for(int i = 0; i < 7; i ++){
+		pecas[i].status = "mao1";
+	}
+	for(int i = 7; i < 15; i ++){
+		pecas[i].status = "mao2";
+	}
+	for(int i = 15; i < 28; i ++){
+		pecas[i].status = "monte"
+	}
+}
