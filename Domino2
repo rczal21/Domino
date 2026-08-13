@@ -1,0 +1,92 @@
+//DHIR - Projeto Domino 
+
+/*O sistema deverá montar as peças do dominó com a numeração correta do jogo
+Deverá permitir ao usuário embaralhar as peças do dominó, e permitir ao usuário a 
+iniciar uma nova partida embaralhando novamente as peças
+O sistema deverá permitir ao usuário mostrar todas as peças do dominó na tela
+de forma organizada (em ordem) e tambem embaralhada. (modo texto)
+O sistema deverá estar estruturado no modelo MVC.
+O sistema deverá ser projetado de forma suficientemente modularizada para 
+facilitar a manutenção e alterações sem impactar os demais módulos do sistema.*/
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<string.h>
+	struct Peca
+			{
+				int lado1;
+				int lado2;
+				char status;
+			} pecas[28];
+			
+	void mostrarMao(Peca pecas[]){
+		for(int i = 0; i < 28; i ++){
+			if(pecas[i].status == '1') {
+			printf("[%d|%d], ", pecas[i].lado1, pecas[i].lado2);
+		}
+		
+	}
+	}
+	void mostrarPecas(Peca pecas[], int n){
+		for(int i = 0; i < n; i++){
+				printf(" Peca %d: [%d|%d]\n", i , pecas[i].lado1, pecas[i].lado2);
+		}
+}
+	void embaralhar(Peca pecas[], int n){
+		for(int i = 27; i > 0; i--){
+			int j = rand() % (i + 1);	
+				Peca temp = pecas[i];
+				pecas[i] = pecas[j];
+				pecas[j] = temp;
+		}
+	}
+	
+	void distribuir(Peca pecas[]){
+	for(int i = 0; i < 7; i ++){
+		pecas[i].status = '1';
+	}
+	for(int i = 7; i < 14; i ++){
+		pecas[i].status = '2';
+	}
+	for(int i = 15; i < 28; i ++){
+		pecas[i].status = 'M';
+	}
+}
+	void jogar(Peca pecas[]){
+		embaralhar(pecas, 28);
+		distribuir(pecas);
+		mostrarMao(pecas);
+	}
+	int main(){
+		
+			srand(time(NULL));
+				
+				int indice = 0;
+				
+				for(int i = 0; i < 7; i ++){
+					for(int j = i; j < 7; j++){
+					
+					pecas[indice].lado1 = i;
+					pecas[indice].lado2 = j;
+					indice++;
+				}
+				}
+			
+			char resposta;
+			
+			printf("Deseja jogar? (digite s para sim ou n para nao)");
+			scanf("%c",  &resposta);
+			if(resposta == 's'){
+				jogar(pecas, 28);
+			}else{
+				printf("Programa encerrado.");
+			}
+		
+			
+			
+			
+			
+	
+	
+}
+	
