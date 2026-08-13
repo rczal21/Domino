@@ -37,6 +37,7 @@ void organizar(Peca pecas[]){
 			}
 		}
 	}
+
 void distribuir(Peca pecas[]){
 	for(int i = 0; i < 7; i ++){
 		pecas[i].status = "mao1";
