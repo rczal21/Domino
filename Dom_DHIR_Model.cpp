@@ -48,3 +48,9 @@ void distribuir(Peca pecas[]){
 		pecas[i].status = "monte"
 	}
 }
+
+void jogarEli(Peca pecas[]) {
+	for(int i = 0; i < 10; i++)
+		mostrarPecas(pecas, 28);
+}
+	
