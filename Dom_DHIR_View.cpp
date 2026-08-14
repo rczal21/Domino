@@ -28,6 +28,8 @@ void menu(Peca pecas[]){
     scanf("%d", &opcao);
     if (opcao == 1)
         jogar(pecas);
+	else if (opcao == 2)
+        jogarEli(pecas);
     else
         printf("Digite um valor válido")
     
