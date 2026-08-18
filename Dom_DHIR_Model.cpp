@@ -22,7 +22,7 @@ void embaralhar(Peca pecas[], int n){
 	}
 }
 
-void organizar(Peca pecas[]){
+void gerarPeca(Peca pecas[]){
 	int indice = 0;
 	for(int i = 0; i < 7; i++){
 		for(int j = i; j < 7; j++){
