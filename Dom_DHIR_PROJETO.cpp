@@ -10,8 +10,8 @@ Rafaella Castro Zandona Alves de Lima*/
 
 main()
 {
+	organizar();   //Fica no Model
 	jogar();     //Fica no Controller
-	
 }
 
 
