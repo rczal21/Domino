@@ -10,7 +10,7 @@ Rafaella Castro Zandona Alves de Lima*/
 
 
 	void jogar(Peca pecas[]){
+		for(int i = 0; i < 10; i++)
+		mostrarPecas(pecas, 28);
 		embaralhar(pecas, 28);
-		distribuir(pecas);
-		mostrarMao(pecas);
 	}
