@@ -5,9 +5,6 @@ Henrique Campos Rodrigues,
 Isabella de Souza Fleury, 
 Rafaella Castro Zandona Alves de Lima */
 
-#ifndef Dom_DHIR_Model_h
-#define Dom_DHIR_Model_h
-
 typedef struct
 {
     int lado1;
@@ -22,5 +19,3 @@ void gerarPeca(Peca pecas[]);
 void inicializarAleatorio();
 void distribuir(Peca pecas[]);
 
-
-#endif
