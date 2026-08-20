@@ -38,22 +38,13 @@ void inicializarAleatorio() {
 }
 
 void distribuir(Peca pecas[]){
-	Peca listaMao[21];
-	
-	for(int i = 0; i < 7; i ++){
-		pecas[i].status = "1";
-		listaMao[i] = pecas[i];
+	for(int i = 0; i < 7; i++){
+		pecas[i].status = '1';
 	}
-	for(int i = 7; i < 15; i ++){
-		pecas[i].status = "2";
+	for(int i = 7; i < 14; i++){
+		pecas[i].status = '2';
 	}
-	for(int i = 15; i < 28; i ++){
-		pecas[i].status = "M"
+	for(int i = 14; i < 28; i++){
+		pecas[i].status = 'M';
 	}
 }
-
-	
-}
-
-
-	
