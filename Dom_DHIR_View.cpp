@@ -6,6 +6,7 @@ Isabella de Souza Fleury,
 Rafaella Castro Zandona Alves de Lima */ 
 
 #include "Dom_DHIR_View.h"
+#include "Dom_DHIR_Controller.h"
 #include <stdio.h>
 
 void mostrarPecas(Peca pecas[], int n){
@@ -14,7 +15,7 @@ void mostrarPecas(Peca pecas[], int n){
     }
 }
 
-void mostrarMao1(Peca pecas[]){
+void mostrarMao(Peca pecas[]){
 		for(int i = 0; i < 28; i ++){
 			if(pecas[i].status == '1') {
 			printf("[%d|%d], ", pecas[i].lado1, pecas[i].lado2);
@@ -22,23 +23,15 @@ void mostrarMao1(Peca pecas[]){
 		}
 	}
 
-void mostrarMao2(Peca pecas[]){
-		for(int i = 0; i < 28; i ++){
-			if(pecas[i].status == '2') {
-			printf("[%d|%d], ", pecas[i].lado1, pecas[i].lado2);
-			}
-		}
-	}
-
 void menu(Peca pecas[]){
     int opcao;
-    printf("Modo de jogo (1 ou 2):")
+    printf("Modo de jogo (1 ou 2):");
     scanf("%d", &opcao);
     if (opcao == 1)
         jogar1(pecas);
 	else if (opcao == 2)
-        jogar2(pecas);
+        printf("Modo 2 ainda nao implementado.\n");
     else
-        printf("Digite um valor válido")
+        printf("Digite um valor válido\n");
     
 }
