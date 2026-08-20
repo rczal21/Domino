@@ -5,13 +5,16 @@ Henrique Campos Rodrigues,
 Isabella de Souza Fleury, 
 Rafaella Castro Zandona Alves de Lima*/
 
-#include "Dom_DHIR_Model.cpp"
-#include "Dom_DHIR_Controller.cpp"
-
-main()
+#include "Dom_DHIR_Model.h"
+#include "Dom_DHIR_Controller.h"
+#include "Dom_DHIR_View.h"
+ 
+int main()
 {
-	gerarPeca();   //Fica no Model
-	jogar();     //Fica no Controller
+	inicializarAleatorio();
+	gerarPeca(pecas);
+	distribuir(pecas);
+	menu(pecas);
+ 
+	return 0;
 }
-
-
