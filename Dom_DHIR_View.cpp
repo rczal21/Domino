@@ -14,9 +14,17 @@ void mostrarPecas(Peca pecas[], int n){
     }
 }
 
-void mostrarMao(Peca pecas[]){
+void mostrarMao1(Peca pecas[]){
 		for(int i = 0; i < 28; i ++){
 			if(pecas[i].status == '1') {
+			printf("[%d|%d], ", pecas[i].lado1, pecas[i].lado2);
+			}
+		}
+	}
+
+void mostrarMao2(Peca pecas[]){
+		for(int i = 0; i < 28; i ++){
+			if(pecas[i].status == '2') {
 			printf("[%d|%d], ", pecas[i].lado1, pecas[i].lado2);
 			}
 		}
@@ -27,9 +35,9 @@ void menu(Peca pecas[]){
     printf("Modo de jogo (1 ou 2):")
     scanf("%d", &opcao);
     if (opcao == 1)
-        jogar(pecas);
+        jogar1(pecas);
 	else if (opcao == 2)
-        jogarEli(pecas);
+        jogar2(pecas);
     else
         printf("Digite um valor válido")
     
