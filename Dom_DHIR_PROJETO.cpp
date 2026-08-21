@@ -5,16 +5,13 @@ Henrique Campos Rodrigues,
 Isabella de Souza Fleury, 
 Rafaella Castro Zandona Alves de Lima*/
 
-#include "Dom_DHIR_Model.h"
-#include "Dom_DHIR_Controller.h"
-#include "Dom_DHIR_View.h"
+#include "Dom_DHIR_Model.cpp"
+#include "Dom_DHIR_Controller.cpp"
  
 int main()
 {
-	inicializarAleatorio();
-	gerarPeca(pecas);
-	distribuir(pecas);
-	menu(pecas);
+	gerarPeca(pecas);   // Fica no Model
+	jogarSolo(pecas);   // Fica no Controller (agora também chama inicializarMesa)
  
 	return 0;
 }
