@@ -28,10 +28,9 @@ void menu(Peca pecas[]){
     printf("Modo de jogo (1 ou 2):");
     scanf("%d", &opcao);
     if (opcao == 1)
-        jogar1(pecas);
-	else if (opcao == 2)
-        printf("Modo 2 ainda nao implementado.\n");
+        jogarSolo(pecas);
+    else if (opcao == 2)
+        jogarDoisJogadores(pecas);
     else
-        printf("Digite um valor válido\n");
-    
+        printf("Digite um valor válido");
 }
