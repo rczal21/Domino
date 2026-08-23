@@ -25,10 +25,28 @@ void mostrarMao(Peca pecas[]){
 
 void menu(Peca pecas[]){
     int opcao;
-    printf("Modo de jogo (1 ou 2):");
+    printf("1 - Iniciar jogo\n");
+    printf("4 - Ver regras do jogo\n");
+    printf("0 - Sair\n");
+    printf("Opcao: ");
     scanf("%d", &opcao);
+
     if (opcao == 1)
         jogar(pecas);
+    else if (opcao == 4)
+        mostrarRegras();
+    else if (opcao == 0)
+        return;
     else
-        printf("Digite um valor valido");
+        printf("Digite um valor valido\n");
+}
+
+
+void mostrarRegras(){
+    printf("Regras do jogo:\n");
+    printf("1. Cada jogador recebe 7 peças.\n");
+    printf("2. O jogador que tiver a peça dupla mais alta começa o jogo.\n");
+    printf("3. Os jogadores se revezam colocando peças na mesa, combinando os números nas extremidades.\n");
+    printf("4. Se um jogador não puder jogar, ele deve comprar uma peça do monte.\n");
+    printf("5. O jogo termina quando um jogador coloca todas as suas peças ou quando nenhum jogador puder jogar.\n");
 }
