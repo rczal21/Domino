@@ -19,3 +19,4 @@ void gerarPeca(Peca pecas[]);
 void inicializarAleatorio();
 void distribuir(Peca pecas[]);
 
+#endif
