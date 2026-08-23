@@ -1,12 +1,12 @@
 // Dom_DHIR_View
-// 12/08/2026
+
 /* Daniel Luís de Amorim Mariano Santos, 
 Henrique Campos Rodrigues, 
 Isabella de Souza Fleury, 
 Rafaella Castro Zandona Alves de Lima */ 
 
+
 #include "Dom_DHIR_View.h"
-#include "Dom_DHIR_Controller.h"
 #include <stdio.h>
 
 void mostrarPecas(Peca pecas[], int n){
@@ -16,21 +16,21 @@ void mostrarPecas(Peca pecas[], int n){
 }
 
 void mostrarMao(Peca pecas[]){
-		for(int i = 0; i < 28; i ++){
-			if(pecas[i].status == '1') {
+	for(int i = 0; i < 28; i++){
+		if(pecas[i].status == '1') {
 			printf("[%d|%d], ", pecas[i].lado1, pecas[i].lado2);
-			}
 		}
 	}
+}
 
 void menu(Peca pecas[]){
     int opcao;
     printf("Modo de jogo (1 ou 2):");
     scanf("%d", &opcao);
     if (opcao == 1)
-        jogarSolo(pecas);
-    else if (opcao == 2)
-        jogarDoisJogadores(pecas);
+        jogar(pecas);
+    // else if (opcao == 2)
+    //     jogarEli(pecas);   // ainda nao implementada
     else
-        printf("Digite um valor válido");
+        printf("Digite um valor valido");
 }
