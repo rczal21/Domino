@@ -16,6 +16,15 @@ void menu(Peca pecas[]);
 void mostrarRegras();
 void mostrarQuemComeca(char jogador);
 char submenuJogada(char jogador);
- 
-#endif
 
+void mostrarMesa(int mesaEsquerda, int mesaDireita);
+int pedirIndicePeca();
+void mostrarPecaInvalida();
+void mostrarPecaAbriuMesa(int lado1, int lado2);
+void mostrarPecaEncaixada(char lado);
+void mostrarPecaNaoEncaixa();
+void mostrarOpcaoInvalida();
+void mostrarResultadoCompra(bool sucesso);
+void mostrarVencedor(char jogador);
+
+#endif
