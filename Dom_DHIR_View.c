@@ -1,4 +1,4 @@
-// Dom_DHIR_View
+/ Dom_DHIR_View
 
 /* Daniel Luís de Amorim Mariano Santos, 
 Henrique Campos Rodrigues, 
@@ -49,4 +49,8 @@ void mostrarRegras(){
     printf("3. Os jogadores se revezam colocando peças na mesa, combinando os números nas extremidades.\n");
     printf("4. Se um jogador não puder jogar, ele deve comprar uma peça do monte.\n");
     printf("5. O jogo termina quando um jogador coloca todas as suas peças ou quando nenhum jogador puder jogar.\n");
+}
+
+void mostrarQuemComeca(char jogador){
+    printf("O jogador %c comeca a partida!\n", jogador);
 }
