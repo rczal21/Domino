@@ -65,3 +65,48 @@ char submenuJogada(char jogador){
 	scanf(" %c", &opcao);
 	return opcao;
 }
+
+void mostrarMesa(int mesaEsquerda, int mesaDireita){
+    printf("\n--- Mesa: [%d | %d] ---\n", mesaEsquerda, mesaDireita);
+}
+ 
+int pedirIndicePeca(){
+    int indice;
+    printf("Digite o indice da peca que deseja jogar: ");
+    scanf("%d", &indice);
+    return indice;
+}
+ 
+void mostrarPecaInvalida(){
+    printf("Peca invalida.\n");
+}
+ 
+void mostrarPecaAbriuMesa(int lado1, int lado2){
+    printf("Peca [%d|%d] colocada na mesa.\n", lado1, lado2);
+}
+ 
+void mostrarPecaEncaixada(char lado){
+    if(lado == 'E')
+        printf("Peca encaixada na esquerda.\n");
+    else
+        printf("Peca encaixada na direita.\n");
+}
+ 
+void mostrarPecaNaoEncaixa(){
+    printf("Essa peca nao encaixa em nenhuma extremidade.\n");
+}
+ 
+void mostrarOpcaoInvalida(){
+    printf("Opcao invalida.\n");
+}
+ 
+void mostrarResultadoCompra(bool sucesso){
+    if(sucesso)
+        printf("Peca comprada.\n");
+    else
+        printf("Monte vazio, nao ha mais pecas para comprar.\n");
+}
+ 
+void mostrarVencedor(char jogador){
+    printf("\nJogador %c bateu e venceu o jogo!\n", jogador);
+}
