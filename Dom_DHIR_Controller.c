@@ -9,22 +9,13 @@ Rafaella Castro Zandona Alves de Lima*/
 #include "Dom_DHIR_View.c"
  
 void jogar(Peca pecas[]){
+	
+	embaralhar(pecas, 28);   
+	criarMesa();
+	distribuir(pecas);       
  
-	mostrarPecas(pecas, 28);
+	char quemComeca = definirComecar(pecas);
+	mostrarQuemComeca(quemComeca);
  
-	embaralhar(pecas, 28);
-	mostrarPecas(pecas, 28);
- 
-	embaralhar(pecas, 28);
-	mostrarPecas(pecas, 28);
- 
-	embaralhar(pecas, 28);
-	mostrarPecas(pecas, 28);
- 
-	embaralhar(pecas, 28);
-	mostrarPecas(pecas, 28);
- 
-	embaralhar(pecas, 28);
-	mostrarPecas(pecas, 28);
+	mostrarMao(pecas);
 }
- 
