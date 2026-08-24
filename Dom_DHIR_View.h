@@ -1,3 +1,5 @@
+// Dom_DHIR_View.h
+
 /* Daniel Luís de Amorim Mariano Santos,
 Henrique Campos Rodrigues,
 Isabella de Souza Fleury,
@@ -12,6 +14,7 @@ void mostrarPecas(Peca pecas[], int n);
 void mostrarMao(Peca pecas[]);
 void menu(Peca pecas[]);
 void mostrarRegras();
+void mostrarQuemComeca(char jogador);
  
 #endif
 
