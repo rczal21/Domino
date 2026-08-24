@@ -1,4 +1,4 @@
-/ Dom_DHIR_View
+// Dom_DHIR_View
 
 /* Daniel Luís de Amorim Mariano Santos, 
 Henrique Campos Rodrigues, 
