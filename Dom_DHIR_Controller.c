@@ -4,67 +4,63 @@
 Henrique Campos Rodrigues,
 Isabella de Souza Fleury,
 Rafaella Castro Zandona Alves de Lima*/
- 
+
 #include "Dom_DHIR_Controller.h"
 #include "Dom_DHIR_View.c"
  
 void jogar(Peca pecas[]){
-	
-	embaralhar(pecas, 28);   
+ 
+	embaralhar(pecas, 28);
 	criarMesa();
-	distribuir(pecas);       
+	distribuir(pecas);
  
 	char jogadorAtual = definirComecar(pecas);
 	mostrarQuemComeca(jogadorAtual);
  
 	int jogoAcabou = 0;
 	while(!jogoAcabou){
-		printf("\n--- Mesa: [%d | %d] ---\n", mesaEsquerda, mesaDireita);
-		printf("Sua mao (jogador &c): ", jogadorAtual);
+ 
+		mostrarMesa(mesaEsquerda, mesaDireita);
 		mostrarMao(pecas, jogadorAtual);
-
+ 
 		char opcao = submenuJogada(jogadorAtual);
-
-		if(opcao == 'C' || opcao =='c'){
-			if(comprarPeca(jogadorAtual)){
-				printf("Peca comprada.\n");
-			} else {
-				prontf("MOnte vazio, nao ha mais pecas para comprar.\n");
-			}
+ 
+		if(opcao == 'C' || opcao == 'c'){
+			bool comprou = comprarPeca(jogadorAtual);
+			mostrarResultadoCompra(comprou);
 		}
 		else if(opcao == 'J' || opcao == 'j'){
-			int indice;
-			printf("Digite o indice da peca que deseja jogar: ");
-			scanf("%d", &indice);
+			int indice = pedirIndicePeca();
  
 			if(indice < 0 || indice >= 28 || pecas[indice].status != jogadorAtual){
-				printf("Peca invalida.\n");
+				mostrarPecaInvalida();
 			}
 			else if(qtdMesa == 0){
+				// mesa vazia: a primeira peca abre o jogo, nao precisa validar extremidade
 				mesaEsquerda = pecas[indice].lado1;
 				mesaDireita = pecas[indice].lado2;
 				pecas[indice].status = 'X';  // 'X' = peca na mesa
 				qtdMesa++;
-				printf("Peca [%d|%d] colocada na mesa.\n", pecas[indice].lado1, pecas[indice].lado2);
+				mostrarPecaAbriuMesa(pecas[indice].lado1, pecas[indice].lado2);
 			}
 			else if(jogadaValida(pecas[indice], mesaEsquerda)){
 				mesaEsquerda = (pecas[indice].lado1 == mesaEsquerda) ? pecas[indice].lado2 : pecas[indice].lado1;
 				pecas[indice].status = 'X';
 				qtdMesa++;
-				printf("Peca encaixada na esquerda.\n");
+				mostrarPecaEncaixada('E');
 			}
 			else if(jogadaValida(pecas[indice], mesaDireita)){
 				mesaDireita = (pecas[indice].lado1 == mesaDireita) ? pecas[indice].lado2 : pecas[indice].lado1;
 				pecas[indice].status = 'X';
 				qtdMesa++;
-				printf("Peca encaixada na direita.\n");
+				mostrarPecaEncaixada('D');
 			}
 			else{
-				printf("Essa peca nao encaixa em nenhuma extremidade.\n");
+				mostrarPecaNaoEncaixa();
 			}
 		}
 		else{
-			printf("Opcao invalida.\n");
+			mostrarOpcaoInvalida();
 		}
  
 		// verifica se o jogador atual bateu (ficou sem pecas)
@@ -73,7 +69,7 @@ void jogar(Peca pecas[]){
 			if(pecas[i].status == jogadorAtual) qtdMaoAtual++;
 		}
 		if(qtdMaoAtual == 0){
-			printf("\nJogador %c bateu e venceu o jogo!\n", jogadorAtual);
+			mostrarVencedor(jogadorAtual);
 			jogoAcabou = 1;
 		}
 		else{
@@ -81,3 +77,4 @@ void jogar(Peca pecas[]){
 		}
 	}
 }
+ 
