@@ -7,6 +7,8 @@ Rafaella Castro Zandona Alves de Lima */
  
 #ifndef Dom_DHIR_Model_h
 #define Dom_DHIR_Model_h
+
+#include <stdbool.h>
  
 typedef struct
 {
@@ -20,14 +22,16 @@ extern int numJogadores;
 extern int mesaEsquerda;
 extern int mesaDireita;
 extern int qtdMesa;
+extern char jogadorComeca;
  
 void embaralhar(Peca pecas[], int n);
 void gerarPeca(Peca pecas[]);
 void inicializarAleatorio();
 void distribuir(Peca pecas[]);
 void criarMesa();
-
-extern char jogadorComeca;   
 char definirComecar(Peca pecas[]);
- 
+
+bool comprarPeca(char jogador); //REQ11/REQ16 
+bool jogadaValida(Peca peca, int extremidade); //REQ12
+
 #endif
