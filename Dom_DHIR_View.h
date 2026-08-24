@@ -15,6 +15,7 @@ void mostrarMao(Peca pecas[]);
 void menu(Peca pecas[]);
 void mostrarRegras();
 void mostrarQuemComeca(char jogador);
+char submenuJogada(char jogador);
  
 #endif
 
