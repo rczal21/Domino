@@ -15,12 +15,13 @@ void mostrarPecas(Peca pecas[], int n){
     }
 }
 
-void mostrarMao(Peca pecas[]){
+void mostrarMao(Peca pecas[], char jogador){
 	for(int i = 0; i < 28; i++){
-		if(pecas[i].status == '1') {
+		if(pecas[i].status == jogador) {
 			printf("[%d|%d], ", pecas[i].lado1, pecas[i].lado2);
 		}
 	}
+	printf("\n");
 }
 
 void menu(Peca pecas[]){
@@ -53,4 +54,14 @@ void mostrarRegras(){
 
 void mostrarQuemComeca(char jogador){
     printf("O jogador %c comeca a partida!\n", jogador);
+}
+
+char submenuJogada(char jogador){
+	char opcao;
+	printf("\nVez do jogador %c\n"), jogador);
+	printf("J - Jogar peca\n");
+	printf("C- Comprar\n");
+	printf("Opcao: ");
+	scanf(" %c", &opcao);
+	return opcao;
 }
