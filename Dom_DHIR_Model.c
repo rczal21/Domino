@@ -15,6 +15,7 @@ int numJogadores;
 int mesaEsquerda;
 int mesaDireita;
 int qtdMesa;
+char jogadorComeca;
  
 // Embaralha as pecas
 void embaralhar(Peca pecas[], int n){
@@ -76,4 +77,18 @@ char definirComecar(Peca pecas[]){
 
     jogadorComeca = jogador;
     return jogador;
+}
+
+bool comprarPeca(char jogador){
+	for(int i = 0; i < 28; i++){
+		if(pecass[i].status == 'M'){
+			peca[i].status = jogador; 
+			return true;
+		}
+	}
+	return false;
+}
+
+bool jogadaValida(Peca peca, int extramidade){
+	return (peca.lado1 == extremidade || peca.lado2 == extremidade);
 }
