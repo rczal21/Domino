@@ -1,17 +1,21 @@
 // Dom_DHIR_Model
-
-/* Daniel Luís de Amorim Mariano Santos, 
-Henrique Campos Rodrigues, 
-Isabella de Souza Fleury, 
+// 12/08/2026
+/* Daniel Luís de Amorim Mariano Santos,
+Henrique Campos Rodrigues,
+Isabella de Souza Fleury,
 Rafaella Castro Zandona Alves de Lima */
-
+ 
 #include "Dom_DHIR_Model.h"
 #include <stdlib.h>
 #include <time.h>
-
-// Define de fato o array
+ 
+// Define o array
 Peca pecas[28];
-
+int numJogadores;
+int mesaEsquerda;
+int mesaDireita;
+int qtdMesa;
+ 
 // Embaralha as pecas
 void embaralhar(Peca pecas[], int n){
 	for(int i = 27; i > 0; i--){
@@ -21,7 +25,7 @@ void embaralhar(Peca pecas[], int n){
 		pecas[j] = temp;
 	}
 }
-
+ 
 void gerarPeca(Peca pecas[]){
 	int indice = 0;
 	for(int i = 0; i < 7; i++){
@@ -32,22 +36,44 @@ void gerarPeca(Peca pecas[]){
 		}
 	}
 }
-
+ 
 void inicializarAleatorio() {
 	srand(time(NULL));
 }
-
+ 
 void distribuir(Peca pecas[]){
-	Peca listaMao[21];
-
+	
 	for(int i = 0; i < 7; i++){
 		pecas[i].status = '1';
-		listaMao[i] = pecas[i];
 	}
-	for(int i = 7; i < 15; i++){
+	for(int i = 7; i < 14; i++){
 		pecas[i].status = '2';
 	}
-	for(int i = 15; i < 28; i++){
+	for(int i = 14; i < 28; i++){
 		pecas[i].status = 'M';  // monte
 	}
+}
+
+void criarMesa(){
+	mesaEsquerda = -1;   // -1 = ainda nao tem peca na mesa
+	mesaDireita = -1;
+	qtdMesa = 0;
+}
+char jogadorComeca;
+
+char definirComecar(Peca pecas[]){
+    int maiorDobro = -1;
+    char jogador = '1';   //caso ninguem tenha dobro
+
+    for(int i = 0; i < 28; i++){
+        if(pecas[i].lado1 == pecas[i].lado2){          
+            if(pecas[i].lado1 > maiorDobro){
+                maiorDobro = pecas[i].lado1;
+                jogador = pecas[i].status;
+            }
+        }
+    }
+
+    jogadorComeca = jogador;
+    return jogador;
 }
