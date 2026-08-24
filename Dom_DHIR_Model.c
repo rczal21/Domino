@@ -81,14 +81,14 @@ char definirComecar(Peca pecas[]){
 
 bool comprarPeca(char jogador){
 	for(int i = 0; i < 28; i++){
-		if(pecass[i].status == 'M'){
-			peca[i].status = jogador; 
+		if(pecas[i].status == 'M'){
+			pecas[i].status = jogador; 
 			return true;
 		}
 	}
 	return false;
 }
 
-bool jogadaValida(Peca peca, int extramidade){
+bool jogadaValida(Peca peca, int extremidade){
 	return (peca.lado1 == extremidade || peca.lado2 == extremidade);
 }
