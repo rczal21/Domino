@@ -14,8 +14,70 @@ void jogar(Peca pecas[]){
 	criarMesa();
 	distribuir(pecas);       
  
-	char quemComeca = definirComecar(pecas);
-	mostrarQuemComeca(quemComeca);
+	char jogadorAtual = definirComecar(pecas);
+	mostrarQuemComeca(jogadorAtual);
  
-	mostrarMao(pecas);
+	int jogoAcabou = 0;
+	while(!jogoAcabou){
+		printf("\n--- Mesa: [%d | %d] ---\n", mesaEsquerda, mesaDireita);
+		printf("Sua mao (jogador &c): ", jogadorAtual);
+		mostrarMao(pecas, jogadorAtual);
+
+		char opcao = submenuJogada(jogadorAtual);
+
+		if(opcao == 'C' || opcao =='c'){
+			if(comprarPeca(jogadorAtual)){
+				printf("Peca comprada.\n");
+			} else {
+				prontf("MOnte vazio, nao ha mais pecas para comprar.\n");
+			}
+		}
+		else if(opcao == 'J' || opcao == 'j'){
+			int indice;
+			printf("Digite o indice da peca que deseja jogar: ");
+			scanf("%d", &indice);
+ 
+			if(indice < 0 || indice >= 28 || pecas[indice].status != jogadorAtual){
+				printf("Peca invalida.\n");
+			}
+			else if(qtdMesa == 0){
+				mesaEsquerda = pecas[indice].lado1;
+				mesaDireita = pecas[indice].lado2;
+				pecas[indice].status = 'X';  // 'X' = peca na mesa
+				qtdMesa++;
+				printf("Peca [%d|%d] colocada na mesa.\n", pecas[indice].lado1, pecas[indice].lado2);
+			}
+			else if(jogadaValida(pecas[indice], mesaEsquerda)){
+				mesaEsquerda = (pecas[indice].lado1 == mesaEsquerda) ? pecas[indice].lado2 : pecas[indice].lado1;
+				pecas[indice].status = 'X';
+				qtdMesa++;
+				printf("Peca encaixada na esquerda.\n");
+			}
+			else if(jogadaValida(pecas[indice], mesaDireita)){
+				mesaDireita = (pecas[indice].lado1 == mesaDireita) ? pecas[indice].lado2 : pecas[indice].lado1;
+				pecas[indice].status = 'X';
+				qtdMesa++;
+				printf("Peca encaixada na direita.\n");
+			}
+			else{
+				printf("Essa peca nao encaixa em nenhuma extremidade.\n");
+			}
+		}
+		else{
+			printf("Opcao invalida.\n");
+		}
+ 
+		// verifica se o jogador atual bateu (ficou sem pecas)
+		int qtdMaoAtual = 0;
+		for(int i = 0; i < 28; i++){
+			if(pecas[i].status == jogadorAtual) qtdMaoAtual++;
+		}
+		if(qtdMaoAtual == 0){
+			printf("\nJogador %c bateu e venceu o jogo!\n", jogadorAtual);
+			jogoAcabou = 1;
+		}
+		else{
+			jogadorAtual = (jogadorAtual == '1') ? '2' : '1';
+		}
+	}
 }
