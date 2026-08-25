@@ -108,5 +108,5 @@ void mostrarResultadoCompra(bool sucesso){
 }
  
 void mostrarVencedor(char jogador){
-    printf("\nJogador %c bateu e venceu o jogo!\n", jogador);
+    printf(("\nJogador %c bateu e venceu o jogo!\n"), jogador);
 }
