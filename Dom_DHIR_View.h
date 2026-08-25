@@ -11,7 +11,7 @@ Rafaella Castro Zandona Alves de Lima */
 #include "Dom_DHIR_Model.h"
  
 void mostrarPecas(Peca pecas[], int n);
-void mostrarMao(Peca pecas[]);
+void mostrarMao(Peca pecas[], char jogador);
 void menu(Peca pecas[]);
 void mostrarRegras();
 void mostrarQuemComeca(char jogador);
