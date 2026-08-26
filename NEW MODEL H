@@ -17,4 +17,5 @@ struct Peca
 //variaveis globais
 
 int mesaE, mesaD;   //extremidades Esquerda e Direita da mesa
-int qtmesa;   		//qtde de pecas na mesa
+int quantidadeJogadores
+int quantidadeMesa;   		//quantidade de pecas na mesa
