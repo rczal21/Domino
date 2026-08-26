@@ -8,24 +8,10 @@ Rafaella Castro Zandona Alves de Lima*/
 #include "Dom_DHIR_Controller.h"
 #include "Dom_DHIR_View.c"
  
-void jogar()
-{
-
-	apresentarPecas();
-	embaralharPecas();
-	apresentarPecas();
-		
-	embaralharPecas();
-	apresentarPecas();
-
-	embaralharPecas();
-	apresentarPecas();
-
-	embaralharPecas();
-	apresentarPecas();
-
-	embaralharPecas();
-	apresentarPecas();
-
-	system("pause");
+void jogar(){
+	embaralhar();
+	do {
+		opcao = subMenu();
+	
+	} while (opcao != 0);
 }
