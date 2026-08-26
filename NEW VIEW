@@ -1,4 +1,13 @@
-//"printf" e "scanf" APENAS no View
+// Dom_DHIR_View
+
+/* Daniel Luís de Amorim Mariano Santos, 
+Henrique Campos Rodrigues, 
+Isabella de Souza Fleury, 
+Rafaella Castro Zandona Alves de Lima */ 
+
+
+#include "Dom_DHIR_View.h"
+#include <stdio.h>//"printf" e "scanf" APENAS no View
 
 //Apresenta todas as peças
 void apresentarPecas()
