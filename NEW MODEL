@@ -4,12 +4,7 @@
 #include "Dom_DHIR_Model.h"
 #include <stdio.h>
 #include <time.h>
-
-typedef struct Peca[28]{
-	int ladoD; //lado direito 
-	int ladoE; //lado esquerdo 
-	char status; 
-}tipoPeca; 
+#include <stdlib.h>
 
 //gerar as pecas
 void gerarPecas()
