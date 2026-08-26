@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 int mesaE, mesaD;    //mesaE = lado esquerdo da mesa; mesaD = lado direito da mesa
-int quantidademesa = 0;  //no início do jogo, a quantidade de pecas na mesa e zero 
+int quantidadeMesa = 0;  //no início do jogo, a quantidade de pecas na mesa e zero 
 int quantidadeJogadores = 2; //quantidade de jogadores no jogo
 
 //gerar as pecas
