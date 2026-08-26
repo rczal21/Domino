@@ -7,6 +7,7 @@ Rafaella Castro Zandona Alves de Lima */
 
 
 #include "Dom_DHIR_View.h"
+#include <stdbool.h>
 #include <stdio.h>//"printf" e "scanf" APENAS no View
 
 //Apresenta todas as peças
