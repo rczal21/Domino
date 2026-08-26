@@ -14,6 +14,6 @@ Rafaella Castro Zandona Alves de Lima*/
 int main(){
 	srand(time(NULL));
 	gerarPecas();   //Model
-	jogar();        //Controller
+	menuPrincipal();      
 
 }
