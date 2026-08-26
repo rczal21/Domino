@@ -18,3 +18,53 @@ void apresentarPecas()
 		printf("[%d|%d] ", pecas[i].lado1, pecas[i].lado2);
 	printf("\n\n");
 }
+
+int menuPrincipal{
+	int opcao;
+
+	printf("(1) -> Iniciar novo jogo (2 jogadores).       \n");
+	printf("(2) -> Iniciar novo jogo (Vs. Computador).     \n");
+	printf("(3) -> Regras do jogo.                         \n");
+	printf("(0) -> Sair do jogo.                            \n");
+	
+	printf("-> Opcao Selecionada: ");
+	scanf("%d", &opcao);
+	
+	return opcao;
+}
+
+if (opcao == 1){
+}
+if (opcao == 2){
+}
+if (opcao == 3){
+	void regrasDoJogo(){
+    	printf("Regras do jogo:\n");
+    	printf("1. Cada jogador recebe 7 peças.\n");
+    	printf("2. O jogador que tiver a peça dupla mais alta começa o jogo.\n");
+    	printf("3. Os jogadores se revezam colocando peças na mesa, combinando os números nas extremidades.\n");
+    	printf("4. Se um jogador não puder jogar, ele deve comprar uma peça do monte.\n");
+    	printf("5. O jogo termina quando um jogador coloca todas as suas peças ou quando nenhum jogador puder jogar.\n");
+	}
+}
+else if (opcao == 0){
+	return 0;
+}
+else {
+	printf("Digite um valor valido.\n");
+}
+
+int subMenu(char jogador){
+	int opcaoDoJogador;
+	 
+	printf("\n Jogador %c pecas: ", jogador);
+	apresentarPecas (jogador);
+	
+	printf("\n 1 - Jogar\n");
+	printf("\n 2 - Comprar\n");
+	printf("\n 3 - Passar vez\n");
+	printf("\n 0 - Sair do jogo\n");
+	scanf("%d", &opcaoDoJogador);
+	
+	return opcaoDoJogador;
+}
