@@ -1,0 +1,10 @@
+//"printf" e "scanf" APENAS no View
+
+//Apresenta todas as peças
+void apresentarPecas()
+{
+	printf("\n");
+	for (int i = 0; i < 28; i++)
+		printf("[%d|%d] ", pecas[i].lado1, pecas[i].lado2);
+	printf("\n\n");
+}
