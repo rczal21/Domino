@@ -8,7 +8,7 @@ Rafaella Castro Zandona Alves de Lima*/
 #include "Dom_DHIR_Model.cpp"
 #include "Dom_DHIR-Controller.cpp"
 
-int main {
+int main(){
 	gerarPecas();   //Model
 	jogar();        //Controller
 
