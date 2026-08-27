@@ -78,13 +78,16 @@ int subMenu(char jogador){
 	if (opcaoDoJogador == 2){
 	}
 	if (opcaoDoJogador == 3){
-	}
-	else if (opcaoDoJogador == 0){
-		return 0;
+		if (monteVazio == 1){
+		else{
+		    printf("Acao invalida!\n"); 
+	} return subMenu;
 	}
 	else{
-		printf("Digite um valor valido.\n");
-	}
+		(opcaoDoJogador == 0){
+		return 0;
+	} 
+}
 }
 
 void mesa(){
