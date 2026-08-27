@@ -10,6 +10,7 @@ Rafaella Castro Zandona Alves de Lima */
 #include "Dom_DHIR_Model.h"
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
  
 
 // Define o array
@@ -17,7 +18,7 @@ Peca pecas[28];
 int numJogadores;
 int mesaEsquerda;
 int mesaDireita;
-int qtdMesa;
+int quantidadeMesa;
 char jogadorComeca;
  
 // Embaralha as pecas
@@ -58,3 +59,4 @@ void distribuir(Peca pecas[]){
 	}
 }
 
+void monteVazio(); //necessario criar a partir do status do monte
