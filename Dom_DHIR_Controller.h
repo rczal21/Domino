@@ -6,7 +6,15 @@ Isabella de Souza Fleury,
 Rafaella Castro Zandona Alves de Lima*/
 
 
-//prototipos das funcoes do Controller
+//Biblioteca das funcoes da main e controller
+
+#ifndef DOM_DHIR_CONTROLLER_H
+#define DOM_DHIR_CONTROLLER_H
+
 
 
 void jogar();
+void prepararJogo();
+
+
+#endif
