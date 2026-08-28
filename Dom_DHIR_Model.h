@@ -1,21 +1,26 @@
-// Dom_DHIR_Model.h
+#ifndef DOM_DHIR_MODEL_H
+#define DOM_DHIR_MODEL_H
 
-/* Daniel Luís de Amorim Mariano Santos,
-Henrique Campos Rodrigues,
-Isabella de Souza Fleury,
-Rafaella Castro Zandona Alves de Lima */void gerarPecas();
-void embaralharPecas();
+typedef struct {
+    int ladoE;
+    int ladoD;
+    char status;
+} Peca;
 
-struct Peca
-	{
-	int lado1;
-	int lado2;
-	char status;  //NULL, '1', '2', 'M'
-	              //NULL=disponivel, 1=com o jogador 1, 2=com o jogador 2, M=sobre a mesa
-	} pecas[28];
+extern Peca pecas[28];
+extern int qtdeJogadores;
+extern int mesaE;
+extern int mesaD;
+extern int pontaE;
+extern int pontaD;
+extern int qtdeMesa;
+extern int mesaPecas[55];
+extern char jogadorComeca;
 
-//variaveis globais
+void embaralhar();
+void gerarPeca();
+void inicializarAleatorio();
+void distribuir();
+char primeiraJogada();
 
-int mesaE, mesaD;   //extremidades Esquerda e Direita da mesa
-int quantidadeJogadores
-int quantidadeMesa;   		//quantidade de pecas na mesa
+#endif
