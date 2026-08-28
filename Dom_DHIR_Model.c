@@ -185,3 +185,28 @@ void jogarPecas(int i, char lado){
 	}    
 	pecas[i].status = 'T';
 }
+
+bool jogadaValida(int i, char lado){
+	if (lado == 'D'){
+		if (pecas[i].ladoE == mesaD || pecas[i].ladoD == mesaD){
+			return true;
+		}
+	
+		else{
+			return false;
+		}
+	}
+	else if(lado == 'E'){
+		if (pecas[i].ladoE == mesaE || pecas[i].ladoD == mesaE){
+			return true;
+		}
+			
+		else{
+			return false;
+		}
+	}
+	else{ 
+		return false;
+	}
+}
+
