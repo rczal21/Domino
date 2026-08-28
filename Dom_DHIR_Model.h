@@ -22,5 +22,6 @@ void gerarPeca();
 void inicializarAleatorio();
 void distribuir();
 char primeiraJogada();
+void jogarPecas();
 
 #endif
