@@ -23,5 +23,6 @@ void inicializarAleatorio();
 void distribuir();
 char primeiraJogada();
 void jogarPecas(int i, char lado);
+bool jogadaValida(int i, char lado);
 
 #endif
