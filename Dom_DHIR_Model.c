@@ -1,6 +1,6 @@
 // Dom_DHIR_Model
 // 12/08/2026
- Daniel Luís de Amorim Mariano Santos,
+/*Daniel Luís de Amorim Mariano Santos,
 Henrique Campos Rodrigues,
 Isabella de Souza Fleury,
 Rafaella Castro Zandona Alves de Lima */
@@ -86,14 +86,13 @@ void primeiraJogada(Peca pecas[]){
 		}
 	}
 	
-	if (maior1 < maior2)
-		pecas[numPeca2].status = 'T';
-	else if (maior2 < maior1)
-		pecas[numPeca1].status = 'T';
+	if (maior1 < maior2){
+		pecas[numPeca2].status = 'T';}
+	else if (maior2 < maior1){
+		pecas[numPeca1].status = 'T';}
 	else{
-		for (i = 14; i < 28; i++)
-			if (pecas[i].ladoE == pecas[i].ladoD && pecas[i].ladoE == 6)
-				pecas[i].status = 'T';
+		for (i = 14; i < 28; i++){
+			if (pecas[i].ladoE == pecas[i].ladoD && pecas[i].ladoE == 6){
+				pecas[i].status = 'T';}
+		}	
 	}
-	
-}
