@@ -148,6 +148,40 @@ char primeiraJogada(){
 		}
 	}
 	
-	return jogadorComeca; //devolve o numero do jogador inicial
+	return jogadorComeca; //devolve o numero do jogador inicial	
+}
+
+void jogarPecas(int i, char lado){
+    if (lado == 'D'){
+    	int pontaAtual = mesaD;
+        if (pecas[i].ladoE == pontaAtual){
+        	mesaD = pecas[i].ladoD ;
+		} 
+		else if(pecas[i].ladoD == pontaAtual){
+			int temp = pecas[i].ladoD; //inverte a peca
+			pecas[i].ladoD = pecas[i].ladoE; 
+			pecas[i].ladoE = temp;
+        	mesaD = pecas[i].ladoD;
+		}
 	
+		pontaD++;
+		mesaPecas[pontaD] = i;
+		qtdeMesa++;
+    }
+    else if (lado == 'E'){
+    	int pontaAtual = mesaE;
+    	if (pecas[i].ladoE == pontaAtual){
+        	int temp = pecas[i].ladoE; //inverte a peca
+			pecas[i].ladoE = pecas[i].ladoD; 
+			pecas[i].ladoD = temp;
+        	mesaE = pecas[i].ladoE;
+		} else if(pecas[i].ladoD == pontaAtual){
+        	mesaE = pecas[i].ladoE;
+		}
+		
+		pontaE--;
+		mesaPecas[pontaE] = i;
+		qtdeMesa++;
+	}    
+	pecas[i].status = 'T';
 }
