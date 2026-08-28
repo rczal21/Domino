@@ -8,12 +8,11 @@ Rafaella Castro Zandona Alves de Lima*/
 #include <stdlib.h>
 #include <time.h>
 
-#include "Dom_DHIR_Model.cpp"
-#include "Dom_DHIR-Controller.cpp"
+#include "Dom_DHIR_Model.h"
+#include "Dom_DHIR_Controller.h"
 
 int main(){
 	srand(time(NULL));
-	gerarPecas();   //Model
 	jogar();      
 
 }
