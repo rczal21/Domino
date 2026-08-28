@@ -1,6 +1,6 @@
-// Dom_DHIR_Model
+/* Dom_DHIR_Model
 // 12/08/2026
-/*Daniel Luís de Amorim Mariano Santos,
+ Daniel Luís de Amorim Mariano Santos,
 Henrique Campos Rodrigues,
 Isabella de Souza Fleury,
 Rafaella Castro Zandona Alves de Lima */
@@ -14,14 +14,19 @@ Rafaella Castro Zandona Alves de Lima */
 
 // Define o array
 Peca pecas[28];
-int numJogadores;
-int mesaEsquerda;
-int mesaDireita;
-int quantidadeMesa;
+int qtdeJogadores;
+int mesaE = -1;
+int mesaD = -1;
+
+int pontaE = 27; // serve para marcar a ponta da mesa, para mostrar a mesa na ordem das jogadas 
+int pontaD = 27;
+
+int qtdeMesa;
+int mesaPecas[55]; // para caber uma possivel partida de 28 peças de um unico lado do array 
 char jogadorComeca;
  
 // Embaralha as pecas
-void embaralhar(Peca pecas[], int n){
+void embaralhar(){
 	for(int i = 27; i > 0; i--){
 		int j = rand() % (i + 1);
 		Peca temp = pecas[i];
@@ -30,12 +35,13 @@ void embaralhar(Peca pecas[], int n){
 	}
 }
  
-void gerarPeca(Peca pecas[]){
+void gerarPeca(){
 	int indice = 0;
 	for(int i = 0; i < 7; i++){
 		for(int j = i; j < 7; j++){
-			pecas[indice].lado1 = i;
-			pecas[indice].lado2 = j;
+			pecas[indice].ladoE = i;
+			pecas[indice].ladoD = j;
+			pecas[indice].status = 'M'; // manda direto pra monte
 			indice++;
 		}
 	}
@@ -45,7 +51,7 @@ void inicializarAleatorio() {
 	srand(time(NULL));
 }
  
-void distribuir(Peca pecas[]){
+void distribuir(){
 	
 	for(int i = 0; i < 7; i++){
 		pecas[i].status = '1';
@@ -58,41 +64,90 @@ void distribuir(Peca pecas[]){
 	}
 }
 
-void monteVazio(); //necessario criar a partir do status do monte
 
-void primeiraJogada(Peca pecas[]){
+char primeiraJogada(){
 	int i;
-	int maior1 = 0;
-	int numPeca1 = 0;
+	int maior1 = -1;
+	int numPeca1 = -1;
+	pontaE = 27;
+	pontaD = 27;
+	
 	
 	for(i = 0; i < 7; i++){
-		if (pecas[i].ladoE == pecas[i].ladoD){
-			if (pecas[i].lado1 >= maior1)
-				maior1 = pecas[i].lado1;
-				numPeca1 = i;
+			if (pecas[i].ladoE == pecas[i].ladoD){
+				if (pecas[i].ladoE >= maior1){
+					maior1 = pecas[i].ladoE;
+					numPeca1 = i; // enumera a maior peca
+				}
+			}
 		}
-	}
-
-
-	int i;
-	int maior2 = 0;
-	int numPeca2 = 0;
+	
+	
+	
+	int maior2 = -1;
+	int numPeca2 = -1;
 	
 	for(i = 7; i < 14; i++){
 		if (pecas[i].ladoE == pecas[i].ladoD){
-			if (pecas[i].ladoE >= maior1)
-				maior2 = pecas[i].lado1;
+			if (pecas[i].ladoE >= maior2){
+				maior2 = pecas[i].ladoE;
 				numPeca2 = i;
+			}
 		}
 	}
 	
 	if (maior1 < maior2){
-		pecas[numPeca2].status = 'T';}
-	else if (maior2 < maior1){
-		pecas[numPeca1].status = 'T';}
-	else{
-		for (i = 14; i < 28; i++){
-			if (pecas[i].ladoE == pecas[i].ladoD && pecas[i].ladoE == 6){
-				pecas[i].status = 'T';}
-		}	
+		pecas[numPeca2].status = 'T';
+		mesaE = pecas[numPeca2].ladoE;
+		mesaD = pecas[numPeca2].ladoD;
+		jogadorComeca = '2';
+		qtdeMesa = 1;
+		mesaPecas[27] = numPeca2;
 	}
+		
+	else if (maior2 < maior1) {
+		pecas[numPeca1].status = 'T';
+		mesaE = pecas[numPeca1].ladoE;
+		mesaD = pecas[numPeca1].ladoD;
+		jogadorComeca = '1';
+		qtdeMesa = 1;
+		mesaPecas[27] = numPeca1;
+	}
+		
+	else{
+		for (i = 0; i < 7; i++){
+			if (pecas[i].ladoE + pecas[i].ladoD > maior1){
+				maior1 = pecas[i].ladoE + pecas[i].ladoD;
+				numPeca1 = i;
+			}
+		}
+		
+		for (i = 7; i < 14; i++){
+			if (pecas[i].ladoE + pecas[i].ladoD > maior2){
+				maior2 = pecas[i].ladoE + pecas[i].ladoD;
+				numPeca2 = i;
+			}
+		}
+		
+		if (maior1 > maior2){
+			pecas[numPeca1].status = 'T';
+			mesaE = pecas[numPeca1].ladoE;
+			mesaD = pecas[numPeca1].ladoD;
+			jogadorComeca = '1';
+			qtdeMesa = 1;
+			mesaPecas[27] = numPeca1;
+		}
+			
+		else {
+			pecas[numPeca2].status = 'T';
+			mesaE = pecas[numPeca2].ladoE;
+			mesaD = pecas[numPeca2].ladoD;
+			jogadorComeca = '2';
+			qtdeMesa = 1;
+			mesaPecas[27] = numPeca2; 
+		}
+	}
+	
+	return jogadorComeca; //devolve o numero do jogador inicial
+	
+}
