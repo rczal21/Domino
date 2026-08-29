@@ -38,14 +38,18 @@ int menuPrincipal(){
     return opcao;
 }
 
-void mostrarRegras(){
-    printf("\nRegras do jogo:\n");
-    printf("1. Cada jogador recebe 7 pecas.\n");
-    printf("2. O jogador que tiver a peca dupla mais alta comeca o jogo.\n");
-    printf("3. Os jogadores se revezam colocando pecas na mesa, combinando os numeros nas extremidades.\n");
-    printf("4. Se um jogador nao puder jogar, ele deve comprar uma peca do monte.\n");
-    printf("5. O jogo termina quando um jogador coloca todas as suas pecas ou quando nenhum jogador puder jogar.\n");
-}
+void regrasDoJogo(){
+    		printf("Regras do jogo:\n");
+    		printf("1. Cada jogador recebe 7 peças.\n");
+    		printf("2. O jogador que tiver a peça dupla mais alta começa o jogo.\n");
+    		printf("3. Os jogadores se revezam colocando peças na mesa, combinando os números nas extremidades.\n");
+    		printf("4. Se um jogador não puder jogar, ele deve comprar uma peça do monte.\n");
+            printf("5. Um jogador pode passar a vez apenas quando nao ha mais poecas no monte e suas pecas na mao nao cabem em nenhuma das extremidades\n");  
+            printf("6. Os jogadores podem comprar quantas vezes eles quiserem no deposito de pecas ainda disponivel\n");
+    		printf("7. O jogo termina quando um jogador coloca todas as suas peças ou quando nenhum jogador puder jogar mais.\n");
+            printf("8. Em caso de empate (os dois jogadores tem o mesmo numero de pecas), o jogador que tiver a menor soma (ladoE + ladoD) de todas as pecas sera o vencedor\n");
+            printf("9. O UNICO caso de empate ocorre quando a quantidade de pecas e de a soma das pecas dos dois jogadores forem iguais\n"); 
+		}
 
 void mostrarQuemComeca(char jogador){
     printf("O jogador %c comeca a partida!\n", jogador);
