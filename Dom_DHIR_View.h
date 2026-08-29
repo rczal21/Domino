@@ -26,5 +26,13 @@ void mostrarPecaEncaixada(char lado);
 void mostrarPecaNaoEncaixa();
 void mostrarOpcaoInvalida();
 void mostrarVencedor(char jogador);
+int lerIndicePeca();
+char lerLadoPeca();
+void mostrarPecaInvalidaMao();
+void mostrarCompraSucesso();
+void mostrarMonteVazio();
+void mostrarPassouVez(char jogador);
+void mostrarSaindoDoJogo();
 
 #endif
+
