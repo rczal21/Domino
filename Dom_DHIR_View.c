@@ -28,8 +28,8 @@ void mostrarMao(char jogador){
 int menuPrincipal(){
     int opcao;
     printf("\n=== DOMINO ===\n");
-    printf("1 - Vs. COM\n");
-    printf("2 - Multiplayer (Dois jogadores)\n");
+    printf("1 - Jogar 1 jogador contra o computador\n");
+    printf("2 - Jogar com 2 jogadores\n");
     printf("3 - Ver regras do jogo\n");
     printf("0 - Sair\n");
     printf("Opcao: ");
