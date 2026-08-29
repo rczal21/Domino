@@ -1,9 +1,9 @@
 // Dom_DHIR_View.c
 
-/* Daniel Luís de Amorim Mariano Santos, 
-Henrique Campos Rodrigues, 
-Isabella de Souza Fleury, 
-Rafaella Castro Zandona Alves de Lima */ 
+/* Daniel Luís de Amorim Mariano Santos,
+Henrique Campos Rodrigues,
+Isabella de Souza Fleury,
+Rafaella Castro Zandona Alves de Lima */
 
 #include "Dom_DHIR_View.h"
 #include "Dom_DHIR_Model.h"
@@ -19,7 +19,7 @@ void mostrarMao(char jogador){
     printf("\nMao do Jogador %c:\n", jogador);
     for(int i = 0; i < 28; i++){
         if(pecas[i].status == jogador) {
-            printf("[%d|%d] ", pecas[i].ladoE, pecas[i].ladoD);
+            printf("%d:[%d|%d] ", i, pecas[i].ladoE, pecas[i].ladoD);
         }
     }
     printf("\n");
@@ -28,7 +28,7 @@ void mostrarMao(char jogador){
 int menuPrincipal(){
     int opcao;
     printf("\n=== DOMINO ===\n");
-    printf("1 - Jogar 1 jogador contra o computador\n");
+    printf("1 - Jogar 1 jogador vs computador\n");
     printf("2 - Jogar com 2 jogadores\n");
     printf("3 - Ver regras do jogo\n");
     printf("0 - Sair\n");
@@ -38,7 +38,7 @@ int menuPrincipal(){
     return opcao;
 }
 
-void regrasDoJogo(){
+void mostrarRegras(){
     		printf("Regras do jogo:\n");
     		printf("1. Cada jogador recebe 7 peças.\n");
     		printf("2. O jogador que tiver a peça dupla mais alta começa o jogo.\n");
@@ -60,6 +60,8 @@ char subMenu(char jogador){
     printf("\nVez do jogador %c\n", jogador);
     printf("J - Jogar peca\n");
     printf("C - Comprar\n");
+    printf("P - Passar vez\n");
+    printf("S - Sair\n");
     printf("Opcao: ");
     scanf(" %c", &opcao);
     return opcao;
@@ -68,12 +70,12 @@ char subMenu(char jogador){
 void mostrarMesa(){
     int i;
     int indice;
-	printf("\n\t\t--- MESA ---\n");
+    printf("\n\t\t--- MESA ---\n");
     for (i = pontaE; i <= pontaD; i++){
-    	indice = mesaPecas[i]; // associa ao indice a peça da posicao do vetor
-    	printf("[%d|%d] ", pecas[indice].ladoE, pecas[indice].ladoD);
-	}
-	printf("\n\n");
+        indice = mesaPecas[i]; // associa ao indice a peça da posicao do vetor
+        printf("[%d|%d] ", pecas[indice].ladoE, pecas[indice].ladoD);
+    }
+    printf("\n\n");
 }
 
 
@@ -98,4 +100,38 @@ void mostrarOpcaoInvalida(){
 
 void mostrarVencedor(char jogador){
     printf("\nJogador %c bateu e venceu o jogo!\n", jogador);
+}
+
+int lerIndicePeca() {
+    int indice;
+    printf("Digite o numero da peca que deseja jogar: ");
+    scanf("%d", &indice);
+    return indice;
+}
+
+char lerLadoPeca() {
+    char lado;
+    printf("Jogar na Esquerda (E) ou Direita (D)? ");
+    scanf(" %c", &lado);
+    return lado;
+}
+
+void mostrarPecaInvalidaMao() {
+    printf("\nPeca invalida ou nao esta na sua mao! Tente novamente.\n");
+}
+
+void mostrarCompraSucesso() {
+    printf("\nVoce comprou uma peca!\n");
+}
+
+void mostrarMonteVazio() {
+    printf("\nNao ha mais pecas no monte!\n");
+}
+
+void mostrarPassouVez(char jogador) {
+    printf("\nO jogador %c passou a vez!\n", jogador);
+}
+
+void mostrarSaindoDoJogo() {
+    printf("\nEncerrando a partida e voltando ao Menu Principal...\n");
 }
