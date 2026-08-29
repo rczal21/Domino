@@ -1,3 +1,10 @@
+// Dom_DHIR_Model.h
+
+/* Daniel Luís de Amorim Mariano Santos,
+Henrique Campos Rodrigues,
+Isabella de Souza Fleury,
+Rafaella Castro Zandona Alves de Lima */
+
 #ifndef DOM_DHIR_MODEL_H
 #define DOM_DHIR_MODEL_H
 
@@ -24,5 +31,9 @@ void distribuir();
 char primeiraJogada();
 void jogarPecas(int i, char lado);
 bool jogadaValida(int i, char lado);
+int contarPecas(char jogador);
+int tentarJogar(int indicePeca, char lado);
+int comprarPeca(char jogador);
 
 #endif
+
