@@ -15,6 +15,7 @@ Rafaella Castro Zandona Alves de Lima*/
 
 void jogar();
 void prepararJogo();
+void executarPartida(int modoDeJogo);
 
 
 #endif
