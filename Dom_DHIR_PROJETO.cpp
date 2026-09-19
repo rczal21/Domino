@@ -1,6 +1,6 @@
 //Dom_DHIR_PROJETO.cpp - Projeto Domino
-
-/*Daniel Luís de Amorim Mariano Santos,
+//22/09/2026
+/*Daniel Luis de Amorim Mariano Santos,
 Henrique Campos Rodrigues,
 Isabella de Souza Fleury,
 Rafaella Castro Zandona Alves de Lima*/
@@ -8,11 +8,11 @@ Rafaella Castro Zandona Alves de Lima*/
 #include <stdlib.h>
 #include <time.h>
 
-#include "Dom_DHIR_Model.h"
-#include "Dom_DHIR_Controller.h"
+#include "Dom_DHIR_Model.cpp"
+#include "Dom_DHIR_Controller.cpp"
 
 int main(){
-	srand(time(NULL));
+	srand(time(NULL));  //garante que a semente do rand() seja diferente a cada execucao do programa
 	jogar();      
 
 }
