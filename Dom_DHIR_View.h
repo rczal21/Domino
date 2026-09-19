@@ -1,18 +1,13 @@
 // Dom_DHIR_View.h
-
-/* Daniel Luís de Amorim Mariano Santos,
+//22/09/2026
+/* Daniel Luis de Amorim Mariano Santos,
 Henrique Campos Rodrigues,
 Isabella de Souza Fleury,
 Rafaella Castro Zandona Alves de Lima */
 
-//prototipos das funções do View
-
-// Dom_DHIR_View.h
-
 #ifndef DOM_DHIR_VIEW_H
 #define DOM_DHIR_VIEW_H
 
-#include "Dom_DHIR_Model.h"
 
 void mostrarPecas(Peca pecas[], int n);
 void mostrarMao(char jogador);
@@ -33,6 +28,13 @@ void mostrarCompraSucesso();
 void mostrarMonteVazio();
 void mostrarPassouVez(char jogador);
 void mostrarSaindoDoJogo();
+void mostrarJogoSalvo();
+void mostrarErroGravar();
+void mostrarErroArquivo();
+void mostrarJogoCarregado();
+void mostrarErroCarregar();
+void limparTela();
+void pausarTrocaDeJogador(char proximoJogador);
 
 #endif
 
