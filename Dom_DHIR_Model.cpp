@@ -1,6 +1,6 @@
-/* Dom_DHIR_Model
-
- Daniel Luís de Amorim Mariano Santos,
+/* Dom_DHIR_Model.cpp
+//22/09/2026
+ Daniel Luis de Amorim Mariano Santos,
 Henrique Campos Rodrigues,
 Isabella de Souza Fleury,
 Rafaella Castro Zandona Alves de Lima */
@@ -12,20 +12,23 @@ Rafaella Castro Zandona Alves de Lima */
 #include <stdbool.h>
  
 
-// Define o array
+//define o array
 Peca pecas[28];
 int qtdeJogadores;
 int mesaE = -1;
 int mesaD = -1;
 
-int pontaE = 27; // serve para marcar a ponta da mesa, para mostrar a mesa na ordem das jogadas
+int pontaE = 27; //serve para marcar a ponta da mesa, para mostrar a mesa na ordem das jogadas
 int pontaD = 27;
 
 int qtdeMesa;
-int mesaPecas[55]; // para caber uma possivel partida de 28 peças de um unico lado do array
+int mesaPecas[55]; //para caber uma possivel partida de 28 peças de um unico lado do array
 char jogadorComeca;
+
+//instancia global da struct usada para gravar/carregar a situacao do jogo 
+SituacaoJogo sitJogo;
  
-// Embaralha as pecas
+//embaralha as pecas
 void embaralhar(){
     for(int i = 27; i > 0; i--){
         int j = rand() % (i + 1);
@@ -41,7 +44,7 @@ void gerarPeca(){
         for(int j = i; j < 7; j++){
             pecas[indice].ladoE = i;
             pecas[indice].ladoD = j;
-            pecas[indice].status = 'M'; // manda direto pra monte
+            pecas[indice].status = 'M'; //manda direto pra monte
             indice++;
         }
     }
@@ -60,7 +63,7 @@ void distribuir(){
         pecas[i].status = '2';
     }
     for(int i = 14; i < 28; i++){
-        pecas[i].status = 'M';  // monte
+        pecas[i].status = 'M';  //monte
     }
 }
 
@@ -77,7 +80,7 @@ char primeiraJogada(){
             if (pecas[i].ladoE == pecas[i].ladoD){
                 if (pecas[i].ladoE >= maior1){
                     maior1 = pecas[i].ladoE;
-                    numPeca1 = i; // enumera a maior peca
+                    numPeca1 = i; //enumera a maior peca
                 }
             }
         }
@@ -273,4 +276,3 @@ int contarPecas(char jogador) {
     }
     return contador;
 }
-
