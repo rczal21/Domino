@@ -1,13 +1,13 @@
-// Dom_DHIR_View.c
-
-/* Daniel Luís de Amorim Mariano Santos,
+// Dom_DHIR_View.cpp
+//22/09/2026
+/* Daniel Luis de Amorim Mariano Santos,
 Henrique Campos Rodrigues,
 Isabella de Souza Fleury,
 Rafaella Castro Zandona Alves de Lima */
 
 #include "Dom_DHIR_View.h"
-#include "Dom_DHIR_Model.h"
 #include <stdio.h>
+#include <stdlib.h> 
 
 void mostrarPecas(Peca pecas[], int n){
     for(int i = 0; i < n; i++){
@@ -31,6 +31,7 @@ int menuPrincipal(){
     printf("1 - Jogar 1 jogador vs computador\n");
     printf("2 - Jogar com 2 jogadores\n");
     printf("3 - Ver regras do jogo\n");
+    printf("4 - Continuar jogo salvo\n");
     printf("0 - Sair\n");
     printf("Opcao: ");
     scanf("%d", &opcao);
@@ -61,7 +62,8 @@ char subMenu(char jogador){
     printf("J - Jogar peca\n");
     printf("C - Comprar\n");
     printf("P - Passar vez\n");
-    printf("S - Sair\n");
+    printf("G - Gravar jogo e sair\n");
+    printf("S - Sair sem gravar\n");
     printf("Opcao: ");
     scanf(" %c", &opcao);
     return opcao;
@@ -72,7 +74,7 @@ void mostrarMesa(){
     int indice;
     printf("\n\t\t--- MESA ---\n");
     for (i = pontaE; i <= pontaD; i++){
-        indice = mesaPecas[i]; // associa ao indice a peça da posicao do vetor
+        indice = mesaPecas[i]; //associa ao indice a peça da posicao do vetor
         printf("[%d|%d] ", pecas[indice].ladoE, pecas[indice].ladoD);
     }
     printf("\n\n");
@@ -134,4 +136,39 @@ void mostrarPassouVez(char jogador) {
 
 void mostrarSaindoDoJogo() {
     printf("\nEncerrando a partida e voltando ao Menu Principal...\n");
+}
+
+void mostrarJogoSalvo() {
+    printf("\nJogo salvo com sucesso! Voce pode continuar mais tarde pela opcao 4 do menu.\n");
+}
+
+void mostrarErroGravar() {
+    printf("\nOcorreu um erro ao gravar o jogo. Tente novamente.\n");
+}
+
+void mostrarErroArquivo() {
+    printf("\nNao foi possivel abrir um dos arquivos de gravacao.\n");
+}
+
+void mostrarJogoCarregado() {
+    printf("\nJogo carregado com sucesso! Continuando de onde voce parou...\n");
+}
+
+void mostrarErroCarregar() {
+    printf("\nNao ha nenhum jogo salvo (ou os arquivos estao corrompidos).\n");
+}
+
+void limparTela() {
+    system("cls");
+}
+
+//mostra que a vez passa de um jogador para o outro
+void pausarTrocaDeJogador(char proximoJogador) {
+    printf("\nFim da jogada. Passe a vez para o Jogador %c.\n", proximoJogador);
+    printf("Pressione ENTER para continuar...");
+    
+    getchar(); //consome o Enter que ficou pendente de uma leitura anterior (scanf)
+    getchar(); //espera o Enter de confirmacao do jogador
+    
+    limparTela();
 }
